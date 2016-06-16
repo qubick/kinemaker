@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="=utf-8">
-    <title>Three.js app </title>
+    <title>Kinemaker Simulator </title>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
@@ -10,77 +10,73 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script> -->
 
     <style>
-      body {margin:0;}
-      canvas{width:100%; height:100%;}
+    body {margin:0;}
+    canvas{width:100%; height:100%;}
     </style>
   </head>
 
   <div class="top-buttons">
-  <!-- <button class="ui blue button" id="import">STL Import</button> -->
-  <button class="ui grey button" id="mode">
-    View Mode
-  </button>
-  <!-- <p>⌘ + Mouse: Select <br>⌥ + Mouse: Undo</p> -->
-</div>
+    <button class="ui blue button" id="import">
+      STL Import
+    </button>
+    <button class="ui grey button" id="mode">
+      Simulate
+    </button>
+  </div>
 
   <body>
-    <!-- <script src="js/three.js"></script> -->
+    <script src="../js/three.js"></script>
     <!-- <script src="build/react.js"></script>
     <script src="build/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script> -->
 
-    <script language="javascript" type="text/javascript" src="js/simGears.js"></script>
-
-    <h1>
-      hello world!
-    </h1>
-
+    <script language="javascript" type="text/javascript" src="../js/simGears.js"></script>
     <!-- <div id="content"></div>
 
 
     <script type="text/babel">
 
-      var CommentList = React.createClass({
-        render: function(){
-          return(
-            <div className="commentList">
-              Hello, world! I am a commentList
-            </div>
-          );
-        }
-      });
-      var CommentForm  = React.createClass({
-        render: function(){
-          return (
+    var CommentList = React.createClass({
+    render: function(){
+    return(
+    <div className="commentList">
+    Hello, world! I am a commentList
+  </div>
+  );
+  }
+  });
+  var CommentForm  = React.createClass({
+  render: function(){
+  return (
 
-            <div className="commentForm">
-              I am a CommentForm
-            </div>
-          );
-        }
-      });
+  <div className="commentForm">
+  I am a CommentForm
+  </div>
+  );
+  }
+  });
 
-      var CommentBox = React.createClass({
-        componentDidMount: function(){
-          console.log(this.props)
-        },
-        render: function(){
-          return(
-            <div className="commentBox">
-              <h1>Comments</h1>
-              <CommentList />
-              <CommentForm />
-              <input type="submit" name="Enter"></input>
-            </div>
-          )
-        }
-      });
+  var CommentBox = React.createClass({
+  componentDidMount: function(){
+  console.log(this.props)
+  },
+  render: function(){
+  return(
+  <div className="commentBox">
+  <h1>Comments</h1>
+  <CommentList />
+  <CommentForm />
+  <input type="submit" name="Enter"></input>
+  </div>
+  )
+  }
+  });
 
-      ReactDOM.render(
-        <CommentBox/>,
-        document.getElementById('content')
-      );
+  ReactDOM.render(
+  <CommentBox/>,
+  document.getElementById('content')
+  );
 
-    </script> -->
+  </script> -->
   </body>
 </html>

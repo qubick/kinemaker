@@ -8,9 +8,11 @@ var path    = require('path');
 
 // var __dirname = 'views'
 app.use(sendViewMiddleWare)
+// app.use(express.static(path.join(__dirname + '/views/index.html')))
+
 app.get('/', function(req, res){
+  // res.sendFile(__dirname + '/views/index.html')
   res.sendView('index.html')
-  // res.sendFile(path.join('./views/index.html'))
 });
 
 function sendViewMiddleWare(req, res, next){
@@ -46,3 +48,5 @@ app.listen(3000);
 // server.listen(PORT, function(){
 // 	console.log("Server listening on: http://localhost: %s", PORT)
 // })
+
+module.exports = app
