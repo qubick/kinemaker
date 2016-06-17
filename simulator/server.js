@@ -1,26 +1,26 @@
 // var cam = require("./cam.js")
 // var http = require('http')
-var THREE = require('three')
-
-var express = require('express')
+var THREE   = require('three');
+var ejs     = require('ejs');
+var express = require('express');
 var app     = express();
 var path    = require('path');
 
-// var __dirname = 'views'
-app.use(sendViewMiddleWare)
-// app.use(express.static(path.join(__dirname + '/views/index.html')))
+app.engine('html', ejs.renderFile);
+app.set('view engine', 'html');
 
+app.use('/libs', express.static(path.join(__dirname, 'libs')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+
+
+app.set('views', path.join(__dirname, '/views'));
+
+
+// Routes
 app.get('/', function(req, res){
-  // res.sendFile(__dirname + '/views/index.html')
-  res.sendView('index.html')
+  res.render('index');
 });
 
-function sendViewMiddleWare(req, res, next){
-  res.sendView = function(view){
-    return res.sendFile(__dirname + '/views/' + view)
-  }
-  next()
-}
 app.listen(3000);
 
 
