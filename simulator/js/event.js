@@ -108,3 +108,7 @@ function onWindowResize() {
 	camera.updateProjectionMatrix();
 	effect.setSize( window.innerWidth, window.innerHeight );
 }
+
+function onSTLLoad(){
+  console.log("load stl button clicked")
+}

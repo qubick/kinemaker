@@ -13,8 +13,22 @@ var FizzyText = function() {
 window.onload = function() {
   var text = new FizzyText();
   var gui = new DAT.GUI();
-  gui.add(text, 'message');
-  gui.add(text, 'speed', -5, 5);
+  // gui.add(text, 'message');
+  gui.add(text, 'speed', -5, 5)
+  //   .onFinishedChange(function(e){
+  //   console.log("done changing: ", e)
+  // });
   gui.add(text, 'displayOutline');
   gui.add(text, 'explode');
+
+  // gui.add(text, 'position');
+  // gui.add(params, 'interation').onFinishChange(function(){
+  //     // refresh based on the new value of params.interation
+  // });
+
+  // create btn manually
+  // var btn = document.createElement("LoadSTL")
+  // var t   = document.createTextNode("Load STL")
+  // btn.appendChild(t)
+  // document.body.appendChild(btn)
 };
