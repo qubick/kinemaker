@@ -3,34 +3,31 @@
   <head>
     <meta charset="=utf-8">
     <title>Kinemaker Simulator </title>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script> -->
-
     <style>
     body {margin:0;}
     canvas{width:100%; height:100%;}
     </style>
   </head>
 
-  <!-- <div class="top-buttons">
-    <button class="ui blue button" id="import">
+  <div class="top-buttons">
+    <button class="ui blue button" id="import" onclick="onSTLLoad">
       STL Import
     </button>
     <button class="ui grey button" id="mode">
       Simulate
     </button>
-  </div> -->
+  </div>
 
   <body>
+
     <script src="libs/three.js"></script>
-    <script src="../libs/dat.gui.js"></script>
+    <script src="libs/dat.gui.js"></script>
+    <script src="libs/OrbitControls.js" type="text/javascript"></script>
 
-    <script src="../js/event.js"></script>
-    <script src="../js/widgets.js"></script>
 
+    <script src="js/setup.js"></script>
+    <script src="js/event.js"></script>
+    <script src="js/widgets.js"></script>
     <!-- <script src="build/react.js"></script>
     <script src="build/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script> -->
@@ -38,6 +35,7 @@
 
     <script src="../js/gears/cam.js"></script>
     <script src="../js/simulation.js"></script>
+
     <!-- <div id="content"></div>
 
 
