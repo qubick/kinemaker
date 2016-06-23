@@ -2,33 +2,46 @@
 
 var size = 1
 var observerMode = true
-var delta = 0.3
-var test = 'jumper'
+var delta = 0.05
+var test = 'dcam'
 animate()
 
 
 function animate(){
   requestAnimationFrame( animate );
 
-  scene.add(vertical);
 
   if(test === "cam"){
-    scene.add(box, horizontal);
+    scene.add(box, camVert, camHorizon);
 
-    horizontal.rotation.x += 0.05
-    vertical.position.y += delta
+    camHorizon.rotation.x += 0.05
+    camVert.position.y += delta
 
-    if((vertical.position.y > 10) || (vertical.position.y< -10))
+    if((camVert.position.y > 10) || (camVert.position.y< -10))
     delta *= -1
-  }
 
-  else if(test === "jumper"){
+  } else if(test === "jumper"){
 
-    scene.add(box, right, left);
+    scene.add(box, jumperRight, jumperLeft, jumperVert);
 
-    right.rotation.x += 0.05
-    left.rotation.x -= 0.05
-    vertical.rotation.y += 0.05
+    jumperRight.rotation.x += 0.05
+    jumperLeft.rotation.x -= 0.05
+    jumperVert.rotation.y -= 0.05
+
+  } else if(test === "dcam"){
+    scene.add(box, dcamHorizon, dcamVert);
+
+    dcamHorizon.rotation.x += 0.05
+    dcamVert.rotation.y += delta
+    dcamVert.position.y -= delta*2
+
+    if(dcamVert.rotation.y > Math.PI){
+      dcamVert.rotation.y - 2*Math.PI
+      delta *= -1
+    } else if (dcamVert.rotation.y < 0){
+      dcamVert.rotation.y + 2*Math.PI
+      delta *= -1
+    }
   }
   render()
 }
