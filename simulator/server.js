@@ -7,6 +7,7 @@ var path    = require('path');
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/libs', express.static(path.join(__dirname, 'libs')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 
