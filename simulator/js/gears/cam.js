@@ -1,8 +1,8 @@
 // exports.cam = function(){
 // var Cam = function(){
 // var loader = require('../btnFunctions.js')
-var horizontal = new THREE.Group()
-    ,vertical = new THREE.Group()
+var camHorizon = new THREE.Group()
+    ,camVert = new THREE.Group()
 
 var geometryCylinder = new THREE.CylinderGeometry(5,5,120,20)
     ,geometryCube = new THREE.BoxGeometry(30,30,30)
@@ -41,13 +41,13 @@ pad.scale.x = 0.5
 pad.rotation.z += Math.PI/2
 
 cube3.position.y += bboxShaft.size().y + bboxBox.size().y
-horizontal.add(cube1)
-horizontal.add(shaft)
-horizontal.add(cube2)
-horizontal.add(pad)
+camHorizon.add(cube1)
+          .add(shaft)
+          .add(cube2)
+          .add(pad)
 
-vertical.add(rod)
-vertical.add(cube3)
+camVert.add(rod)
+        .add(cube3)
 // };
 
 

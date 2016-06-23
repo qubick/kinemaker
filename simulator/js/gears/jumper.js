@@ -1,7 +1,7 @@
 var loader = new THREE.STLLoader()
-var left = new THREE.Group()
-    ,right = new THREE.Group()
-    ,vertical = new THREE.Group()
+var jumperLeft = new THREE.Group()
+    ,jumperRight = new THREE.Group()
+    ,jumperVert = new THREE.Group()
 
 var geometryCylinder = new THREE.CylinderGeometry(5,5,50,20)
     ,geometryCube = new THREE.BoxGeometry(30,30,30)
@@ -21,10 +21,10 @@ var material2 = new THREE.MeshBasicMaterial({
     });
 
 var shaftLeft = new THREE.Mesh(geometryCylinder, material2)
-    ,shaftRight = new THREE.Mesh(geometryCylinder, material)
+    ,shaftRight = new THREE.Mesh(geometryCylinder, material2)
     ,box  = new THREE.Mesh(geometryOuterBox, material)
-    ,cube1 = new THREE.Mesh(geometryCube, material)
-    ,cube2 = new THREE.Mesh(geometryCube, material)
+    ,cube1 = new THREE.Mesh(geometryCube, material2)
+    ,cube2 = new THREE.Mesh(geometryCube, material2)
     ,rod   = new THREE.Mesh(geometryRod, material)
     ,cube3 = new THREE.Mesh(geometryCube, material)
     ,gearLeft, gearRight, gearTop; //empty geometry holder for gear
@@ -37,7 +37,7 @@ loader.load( './assets/involute_gear.stl', function ( geometry ) {
     gearTop.rotation.set(Math.PI/2, 0, 0);
 		gearTop.scale.set(1.6, 1.6, 1.6 );
     gearTop.position.y = bboxBox.max.y// - gear.position.y;
-    vertical.add(gearTop)
+    jumperVert.add(gearTop)
 
 		// mesh.castShadow = true;
 		// mesh.receiveShadow = true;
@@ -46,13 +46,13 @@ loader.load( './assets/involute_gear.stl', function ( geometry ) {
     gearLeft.rotation.set(0, Math.PI/2, 0);
 		gearLeft.scale.set(1.6, 1.6, 1.6 );
     gearLeft.position.x = bboxBox.min.x// - gear.position.y;
-    left.add(gearLeft)
+    jumperLeft.add(gearLeft)
 
     gearRight = new THREE.Mesh( geometry, material2 );
     gearRight.rotation.set(0, -Math.PI/2, 0);
     gearRight.scale.set(1.6, 1.6, 1.6 );
     gearRight.position.x = bboxBox.max.x// - gear.position.y;
-    right.add(gearRight)
+    jumperRight.add(gearRight)
 	} );
 
 shaftLeft.rotation.z += Math.PI/2
@@ -69,14 +69,14 @@ rod.rotation.y += Math.PI/2
 rod.position.y = bboxBox.size().y - 5 //don't know why..
 
 cube3.position.y += bboxBox.size().y
-left.add(cube1)
-left.add(shaftLeft)
+jumperLeft.add(cube1)
+          .add(shaftLeft)
 
-right.add(cube2)
-right.add(shaftRight)
+jumperRight.add(cube2)
+          .add(shaftRight)
 // horizontal.add(pad)
 
-vertical.add(rod)
-vertical.add(cube3)
+jumperVert.add(rod)
+          .add(cube3)
 // vertical.add(gear)
 // };
